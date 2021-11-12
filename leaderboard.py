@@ -8,7 +8,6 @@ gold_score = 25
 
 # load leaderboard from file
 def load_leaderboard(file_name, leader_names, leader_scores):
-
   leaderboard_file = open(file_name, "r")  # need to create the file ahead of time in same folder
 
   # use a for loop to iterate through the content of the file, one line at a time
@@ -17,20 +16,27 @@ def load_leaderboard(file_name, leader_names, leader_scores):
     leader_name = ""
     leader_score = ""    
     index = 0
-
+    # line_split = []
+    # line_split = line.split(',')
+    # leader_names.append(line_split[0])
+    # leader_scores.append(line_split[1][:-1])
     # TODO 1: use a while loop to read the leader name from the line (format is "leader_name,leader_score")
-
-
+    comma = False
+    while comma == False:
+      if line[index] ==  ',':
+        comma = True
+      index += 1
+    leader_name = line[:index]
     # TODO 2: add the leader name to the list
-
-    
+    leader_names.append(leader_name)
     # TODO 3: read the player score using a similar loop
-
-    
+    leader_score = line[index:-1]
     # TODO 4: add the player score to the list
-
-
+    leader_scores.append(leader_score)
+    print(leader_names)
+    print(leader_scores)
   leaderboard_file.close()
+
 
 
 # update leaderboard by inserting the current player and score to the list at the correct position
