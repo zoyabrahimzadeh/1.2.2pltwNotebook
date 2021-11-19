@@ -1,4 +1,4 @@
-# a121_catch_a_turtle.py
+ # a121_catch_a_turtle.py
 #-----import statements-----
 import turtle
 import random as rand
@@ -9,7 +9,7 @@ turtle_size = 1
 turtle_shape = 'square'
 score = 0
 font_setup = ("Arial", 20, "normal")
-timer = 30
+timer = 5
 counter_interval = 1000   #1000 represents 1 second
 timer_up = False
 colors = ['purple', 'blue', 'lightblue', 'yellow', 'white', 'yellow', 'green', 'pink']
@@ -80,7 +80,7 @@ def manage_leaderboard():
   global leader_scores_list
   global leader_names_list
   global score
-  global spot
+  global shortie
 
   # load all the leaderboard records into the lists
   lb.load_leaderboard(leaderboard_file_name, leader_names_list, leader_scores_list)
@@ -88,10 +88,10 @@ def manage_leaderboard():
   # TODO
   if (len(leader_scores_list) < 5 or score > leader_scores_list[4]):
     lb.update_leaderboard(leaderboard_file_name, leader_names_list, leader_scores_list, player_name, score)
-    lb.draw_leaderboard(leader_names_list, leader_scores_list, True, spot, score)
+    lb.draw_leaderboard(leader_names_list, leader_scores_list, True, shortie, score)
 
   else:
-    lb.draw_leaderboard(leader_names_list, leader_scores_list, False, spot, score)
+    lb.draw_leaderboard(leader_names_list, leader_scores_list, False, shortie, score)
 
 #-----events----------------
 wn = turtle.Screen()

@@ -6,6 +6,8 @@ bronze_score = 15
 silver_score = 20
 gold_score = 25
 
+leader_names = [] 
+leader_scores = []
 # load leaderboard from file
 def load_leaderboard(file_name, leader_names, leader_scores):
   leaderboard_file = open(file_name, "r")  # need to create the file ahead of time in same folder
@@ -14,28 +16,30 @@ def load_leaderboard(file_name, leader_names, leader_scores):
   # note that each line in the file has the format "leader_name,leader_score" for example "Pat,50"
   for line in leaderboard_file:
     leader_name = ""
-    leader_score = ""    
+    leader_score = 0    
     index = 0
-    # line_split = []
-    # line_split = line.split(',')
-    # leader_names.append(line_split[0])
-    # leader_scores.append(line_split[1][:-1])
+    line_split = []
+    line_split = line.split(',')
+    leader_names.append(line_split[0])
+    leader_scores.append(line_split[1][:-1])
     # TODO 1: use a while loop to read the leader name from the line (format is "leader_name,leader_score")
-    comma = False
-    while comma == False:
-      if line[index] ==  ',':
-        comma = True
-      index += 1
-    leader_name = line[:index]
-    # TODO 2: add the leader name to the list
-    leader_names.append(leader_name)
-    # TODO 3: read the player score using a similar loop
-    leader_score = line[index:-1]
-    # TODO 4: add the player score to the list
-    leader_scores.append(leader_score)
+    # comma = False
+    # while comma == False:
+    #   if line[index] ==  ',':
+    #     comma = True
+    #   index += 1
+    # leader_name = line[:index]
+    # # TODO 2: add the leader name to the list
+    # leader_names.append(leader_name)
+    # # TODO 3: read the player score using a similar loop
+    # leader_score = line[index:-1]
+    # print(line[index:-1])
+    # # TODO 4: add the player score to the list
+    # leader_scores.append(leader_score)
     print(leader_names)
     print(leader_scores)
   leaderboard_file.close()
+load_leaderboard('a122_leaderboard.txt', leader_names, leader_scores)
 
 
 
@@ -44,16 +48,18 @@ def update_leaderboard(file_name, leader_names, leader_scores, player_name, play
 
   leader_index = 0
   # TODO 5: loop through all the scores in the existing leaderboard list
-  '''
-    while ():
+  
+  while (leader_index < len(leader_scores)):
     # TODO 6: check if this is the position to insert new score at
-    if ():
+    if (leader_scores[leader_index] >= player_score):
       break
     else:
       leader_index = leader_index + 1
-  '''
+  
   # TODO 7: insert the new player and score at the appropriate position
-
+  leader_names[leader_index] = player_name
+  leader_scores[leader_index] = player_score
+  print(leader_names, leader_scores)
 
   # TODO 8: keep both lists at 5 elements only (top 5 players)
 
