@@ -9,7 +9,7 @@ turtle_size = 1
 turtle_shape = 'square'
 score = 0
 font_setup = ("Arial", 20, "normal")
-timer = 5
+timer = 30
 counter_interval = 1000   #1000 represents 1 second
 timer_up = False
 colors = ['purple', 'blue', 'lightblue', 'yellow', 'white', 'yellow', 'green', 'pink']
@@ -86,6 +86,7 @@ def manage_leaderboard():
   lb.load_leaderboard(leaderboard_file_name, leader_names_list, leader_scores_list)
 
   # TODO
+  print(type(score),  type(leader_scores_list[4]))
   if (len(leader_scores_list) < 5 or score > leader_scores_list[4]):
     lb.update_leaderboard(leaderboard_file_name, leader_names_list, leader_scores_list, player_name, score)
     lb.draw_leaderboard(leader_names_list, leader_scores_list, True, shortie, score)

@@ -1,5 +1,5 @@
 Zoya,1000000
 Cleo,9000
 CarrotCakers,50
-Carri,7
-Jackie,1
+the baddie,28
+zoy,18
